@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { createPortal } from "react-dom";
-import { images, stables } from "../constants";
+import { images} from "../constants";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import CropEasy from "./Crop/CropEasy";
 import { userActions } from "../store/reducer/userReducer";
@@ -16,13 +16,14 @@ const ProfilePicture = ({ avatar }) => {
   const [openCrop, setOpenCrop] = useState(false);
   const [photo , setPhoto] = useState(null)
   const userState = useSelector((state) => state.user);
+  const user = userState?.userInfo?.user;
   const dispatch = useDispatch();
 
   const { mutate} = useMutation({
     mutationFn: ({formData }) => {
       return updateProfilePicture({
         token: getToken(),
-        _id : userState.userInfo.user._id,
+        _id : user._id,
         formData: formData,
       });
     },
@@ -60,17 +61,17 @@ const ProfilePicture = ({ avatar }) => {
       <div>
       <div className="flex flex-row justify-end space-x-20 items-start">
         <div className="flex flex-row justify-center mt-6">
-          <div className="relative w-32">
+          <div className="relative w-32 rounded-full">
             <img
-              className="w-24 h-24 rounded-full"
+              className="w-24 h-24 rounded-full "
               src={
                 avatar
-                  ? stables.UPLOAD_FOLDER_BASE_URL + avatar
+                  ? avatar
                   : images.LoginProfile
               }
               alt=""
             />
-            <div className="w-24 h-24 group hover:bg-gray-200 opacity-70 rounded-full absolute flex justify-center items-center cursor-pointer transition duration-500 -translate-y-24">
+            <div className="w-24 h-24 group hover:bg-gray-200 opacity-70 rounded-full absolute flex justify-center items-center cursor-pointer transition duration-500 -translate-y-24 ">
               <img
                 className="hidden group-hover:block w-12"
                 src={images.uploadSVG}

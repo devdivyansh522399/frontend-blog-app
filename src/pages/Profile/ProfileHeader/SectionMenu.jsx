@@ -11,7 +11,7 @@ const SectionMenu = () => {
                 return (
                   <li className="rounded-lg flex flex-row items-start" key={index}>
                   <a
-                    href="/"
+                    href={item==="Edit Profile"?"/editprofile" : "/"}
                     className="text-dark-hard  font-medium p-2 font-roboto text-lg"
                   >
                     {item}
