@@ -6,6 +6,7 @@ import { signup } from "../../services/Index/users";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userActions } from "../../store/reducer/userReducer";
+import { setToken } from "../../services/token";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const LoginPage = () => {
   });
   useEffect(() => {
     if (userState.userInfo) {
+      setToken(userState.userInfo.token);
       navigate("/");
     }
   }, [navigate, userState.userInfo]);
@@ -47,8 +49,8 @@ const LoginPage = () => {
     mode: "onChange",
   });
   const submitHandler = (data) => {
-    const { email, password } = data;
-    mutate({ email, password });
+    const {name, email, password } = data;
+    mutate({name, email, password });
   };
   const password = watch("password");
   return (

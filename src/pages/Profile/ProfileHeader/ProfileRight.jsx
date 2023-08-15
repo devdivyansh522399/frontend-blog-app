@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Avatar from "./Avatar";
 import { BsFillCameraFill, BsThreeDotsVertical } from "react-icons/bs";
 import { images } from "../../../constants";
+import { useSelector } from "react-redux";
 
 const ProfileRight = () => {
   const [follow, setFollow] = useState(false);
+  const userState = useSelector((state) => state.user);
+  const user = userState.userInfo.user;
   return (
     <>
       <div>
@@ -26,7 +29,7 @@ const ProfileRight = () => {
         <div className="mx-auto w-28 h-28 lg:w-48 lg:h-48 relative -mt-16 lg:-mt-24 border-4 border-white rounded-full overflow-hidden">
           <img
             className="object-cover object-center h-32 lg:h-48"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+            src={user.avatar ? user.avatar : images.LoginProfile}
             alt="Woman looking front"
           />
         </div>
@@ -38,12 +41,12 @@ const ProfileRight = () => {
             <span className="font-roboto font-medium mt-1">2.3k Followers</span>
           </a>
           <div className="-space-x-4">
-            <Avatar />
-            <Avatar />
-            <Avatar />
-            <Avatar />
-            <Avatar />
-            <Avatar />
+            <Avatar avatar={images.LoginProfile}/>
+            <Avatar avatar={images.LoginProfile}/>
+            <Avatar avatar={images.LoginProfile}/>
+            <Avatar avatar={images.LoginProfile}/>
+            <Avatar avatar={images.LoginProfile}/>
+            <Avatar avatar={images.LoginProfile}/>
           </div>
           <button
             type="button"

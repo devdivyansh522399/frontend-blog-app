@@ -15,10 +15,11 @@ const EditProfilePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.user);
+  const user = userState?.userInfo?.user;
   let profileInfo = {};
   const {data : profileData, isLoading: profileIsLoading} = useQuery({
     queryFn : () =>{
-        profileInfo = getUserProfile({token : getToken(), _id : userState.userInfo.user._id})
+        profileInfo = getUserProfile({token : getToken(), _id : user._id})
         return profileInfo
     },
     queryKey : ['profile']
@@ -27,7 +28,7 @@ const EditProfilePage = () => {
     mutationFn: ({ name, password }) => {
       return updateProfile({
         token: getToken(),
-        _id : userState.userInfo.user._id,
+        _id : user._id,
         userData: { name, password },
       });
     },
@@ -83,7 +84,7 @@ const EditProfilePage = () => {
           <h1 className="text-2xl font-roboto font-bold text-center mt-1 underline text-dark-soft">
             Update Your Account
           </h1>
-          <ProfilePicture avatar={userState.userInfo.user?.avatar}/>
+          <ProfilePicture avatar={user?.avatar}/>
           <form
             onSubmit={handleSubmit(submitHandler)}
             className="space-y-3 md:space-y-4 p-2 font-roboto"
