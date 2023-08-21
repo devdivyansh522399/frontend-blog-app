@@ -47,13 +47,14 @@ const CTA = () => {
           </div>
           <div className="col-span-12 hidden mb-[70px] md:block md:order-first lg:col-span-6 lg:order-last">
             <div className="w-3/4 mx-auto relative">
-              <div className="w-1/2 h-1/2 bg-[#e7667d] rounded-lg absolute top-[15%] -right-[10%]" />
-              <div className="w-1/2 h-1/2 bg-white rounded-lg opacity-[0.2] absolute -bottom-[15%] -left-[10%]" />
+              <div className="w-1/2 h-1/2 bg-[#f2516e] rounded-lg absolute top-[15%] -right-[10%]" />
+              <div className="w-1/2 h-1/2 bg-[#64f873] rounded-lg opacity-[0.8] absolute -bottom-[15%] -left-[10%]" />
+              <div className="w-1/2 h-1/2 bg-[#3ae8eb] rounded-lg opacity-[0.8] absolute -top-[15%] -left-[20%]" />
               <div className="w-full rounded-xl bg-white p-3 z-[1] relative">
                 <img
-                  src={images.CTAimage}
+                  src={images.CTA}
                   alt="title"
-                  className="w-full object-cover object-center h-auto md:h-52 lg:h-48 xl:h-60"
+                  className="lg:w-full object-cover object-center h-auto md:h-52 lg:h-48 xl:h-60"
                 />
                 <div className="p-5">
                   <h2 className="font-roboto font-bold text-xl text-dark-soft md:text-2xl lg:text-[28px]">

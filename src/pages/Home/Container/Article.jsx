@@ -1,22 +1,18 @@
-import React from "react";
-import { FaArrowRight } from "react-icons/fa";
-
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
+import Pagination from "../../../components/Pagination";
 
 const Article = () => {
+  const totalPages = 50; // Replace this with the actual total number of pages
   return (
-    <section className="container mx-auto px-5 py-10">
-      <div className="flex flex-wrap md:gap-x-5 lg:px-12 pb-10">
+    <>
+      <div className="flex flex-wrap md:justify-between justify-center  p-3 pb-10">
         <ArticleCard />
         <ArticleCard />
         <ArticleCard />
         <ArticleCard />
       </div>
-      <button className="mx-auto flex items-center gap-x-2 font-bold text-primary border-2 border-primary px-6 py-3 rounded-lg">
-        <span>More Articles</span>
-        <FaArrowRight className="w-3 h-3" />
-      </button>
-    </section>
+      <div className="flex flex-row justify-center p-3"><Pagination totalPages={totalPages} /></div>
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ const NavItems = ({ item }) => {
     <li className="relative group">
       {item.type === "link" ? (
         <>
-          <a href="/" className="px-4 py-2">
+          <a href={item.ref} className="px-4 py-2">
             {item.name}
           </a>
           <span className="cursor-pointer text-black-100  absolute transition-all duration-500 font-bold right-0 top-0  group-hover:right-[90%] opacity-0 group-hover:opacity-100">

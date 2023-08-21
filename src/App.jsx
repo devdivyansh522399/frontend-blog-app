@@ -8,6 +8,7 @@ import {Toaster} from 'react-hot-toast'
 import ProfilePage from "./pages/Profile/ProfilePage";
 import FollowesPage from "./pages/Follwers/FollowesPage";
 import EditProfilePage from "./pages/Profile/EditProfilePage";
+import BlogPage from "./pages/Blog Pages/BlogPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route path="/blog/:id" element={<ArticleDetailPage/>}/>
+        <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/register" element={<CommonPage flag={false}/>}/>
         <Route path="/login" element={<CommonPage flag={true}/>}/>
         <Route path="/profile/:id" element={<ProfilePage/>}/>
