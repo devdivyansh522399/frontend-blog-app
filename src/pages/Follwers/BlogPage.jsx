@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/MainLayout";
 import hashtags from "../../constants/Hashtags";
-import NavItems from "./Component/NavItems";
+import NavItems from "../Blog Pages/Component/NavItems";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import BlogSection from "./Component/BlogSection";
+import BlogSection from "../Blog Pages/Component/BlogSection";
 import CTA from '../Home/Container/CTA'
-import Landing from "./Component/Landing";
+import Landing from "../Blog Pages/Component/Landing";
 
 const BlogPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

@@ -2,12 +2,12 @@ import React from "react";
 import images from "../../constants/image";
 import ArticlePhoto from "./ArticlePhoto";
 import ArticleContent from "./ArticleContent";
-const ArticleCard = (props) => {
+const ArticleCard = ({className}) => {
   return (
     <div
-      className={`max-w-[400px]  mt-4  md:w-[calc(50%-20px)] lg:w-[calc(33.3%-30px)] rounded-lg bg-[#f0efef] ${props.className}`}
+      className={`max-w-[380px] my-3 rounded-lg bg-[#f0efef] ${className}`}
     >
-    <a href="/">
+    <a href="/blog/1">
       <ArticlePhoto photo={images.post1} />
       <div className="p-3">
         <ArticleContent />

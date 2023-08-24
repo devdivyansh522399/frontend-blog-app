@@ -3,7 +3,7 @@ import images from "../../../constants/image";
 import {FiSearch} from 'react-icons/fi'
 const Landing = () => {
   return (
-    <section className="container mx-auto flex flex-col px-5 py-5 lg:flex-row lg:justify-center">
+    <section className="container flex flex-col mx-auto py-5 lg:flex-row lg:justify-center p-3 max-w-7xl">
     <div className="mt-10 lg:w-1/2">
       <h1 className="font-roboto text-3xl text-center font-bold text-dark-soft md:text-5xl lg:text-4xl xl:text-5xl lg:text-left lg:max-w-[540px]">
         Read the most interesting articles
