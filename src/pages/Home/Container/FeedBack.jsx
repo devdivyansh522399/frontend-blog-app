@@ -18,8 +18,8 @@ const FeedBack = () => {
     slides = 3;
   }
   return (
-    <section className="container max-w-7xl mx-auto p-5 ">
-      <h1 className="text-4xl  font-bold font-roboto text-dark-hard p-2">
+    <section className="container max-w-7xl mx-auto mt-8 p-3">
+      <h1 className="text-4xl  font-bold font-roboto text-dark-hard p-2 text-center">
         Reviews
       </h1>
       <div className="flex sm:justify-start justify-center mx-auto p-2">

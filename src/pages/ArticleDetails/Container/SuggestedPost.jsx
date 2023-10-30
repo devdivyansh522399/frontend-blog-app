@@ -7,7 +7,7 @@ import { getAllPosts } from "../../../services/Index/posts";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-const SuggestedPost = ({ className, header, posts = [] }) => {
+const SuggestedPost = ({ className, header }) => {
   const { data, isLoading, isError } = useQuery({
     queryFn: () => getAllPosts(),
     queryKey: ["posts"],

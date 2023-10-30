@@ -20,12 +20,14 @@ const Profile = () => {
   return (
     <div className="relative ml-3">
       <div>
+        
         <button
           type="button"
           className="relative flex rounded-full text-sm flex-row items-center space-x-2"
           id="user-menu-button"
           onClick={() => setOpen(!open)}
         >
+          <div className="m-1 bg-dark-hard rounded-full">
           <img
             src={
               user.avatar
@@ -33,16 +35,17 @@ const Profile = () => {
               : images.LoginProfile
             }
             alt=""
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full p-[0.5px]"
           />
-          <span className="hidden lg:block lg:font-roboto lg:font-medium lg:text-dark-soft lg:text-[16px]">
+        </div>
+          <span className="hidden lg:block lg:font-roboto lg:font-medium lg:text-[16px]">
             {user.name}
           </span>
         </button>
       </div>
       {open && (
         <div
-          className="absolute right-0 z-10 mt-2 p-4 origin-top-right rounded-lg bg-dark-soft text-white py-1 outline-none font-medium font-roboto"
+          className="absolute right-0 z-10 mt-2 p-4 origin-top-right rounded-lg text-dark-hard bg-[#b9b9b9] py-1 outline-none font-medium font-roboto"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="user-menu-button"
@@ -63,13 +66,13 @@ const Profile = () => {
           <div className="flex flex-row items-center justify-start">
             <AiTwotoneSetting className="ml-2" />
             <a
-              href={`/profile/${user._id}`}
+              href={`/dashboard/${user._id}`}
               className="block px-2 py-2 text-sm"
               role="menuitem"
               tabIndex={-1}
               id="user-menu-item-0"
             >
-              Settings
+              Dashboard
             </a>
           </div>
           <div className="flex flex-row items-center justify-start">

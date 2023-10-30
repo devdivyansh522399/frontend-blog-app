@@ -3,18 +3,18 @@ import { images } from "../../../constants";
 
 const Community = () => {
   return (
-    <section className="container max-witdh-7xl mx-auto mt-4 p-5">
-      <h1 className="text-4xl  font-bold font-roboto text-dark-hard p-2">
+    <section className="hidden md:block container max-witdh-7xl mx-auto mt-8">
+      <h1 className="text-4xl text-center font-bold font-roboto text-dark-hard p-2">
         Our Community
       </h1>
       <div id="fullWidthTabContent" className="border-t border-gray-200">
         <div
-          className="p-4 bg-white rounded-lg md:p-8"
+          className="rounded-lg"
           id="stats"
           role="tabpanel"
           aria-labelledby="stats-tab"
         >
-          <div className="grid max-w-screen-7xl grid-cols-2 gap-4 p-4 mx-auto text-dark-hard sm:grid-cols-3 xl:grid-cols-4  sm:p-8">
+          <div className="grid max-w-screen-7xl grid-cols-1 md:grid-cols-2 gap-4 p-4 mx-auto text-dark-hard sm:grid-cols-3 xl:grid-cols-4  sm:p-8">
             <div className="flex flex-col items-center justify-center transition-transform transform hover:scale-110 hover:opacity-90">
               <img src={images.Reader} alt="" className="rounded-xl h-48" />
               <div className="p-2 m-2">

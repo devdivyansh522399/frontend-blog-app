@@ -15,6 +15,7 @@ import Articles from '../assests/Article.jpg'
 import Subject from '../assests/Subject.jpg'
 import quotes from '../assests/quotes.svg'
 import defaultPost from '../assests/defaultPost.jpg'
+import Albert from '../assests/Albert.png'
 const images = {
   logo,
   laptopImage1,
@@ -32,6 +33,7 @@ const images = {
   Articles,
   Subject,
   quotes,
-  defaultPost
+  defaultPost,
+  Albert
 };
 export default images;

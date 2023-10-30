@@ -11,7 +11,7 @@ import ProfilePicture from "../../components/ProfilePicture";
 import { userActions } from "../../store/reducer/userReducer";
 import { getToken } from "../../services/token";
 
-const EditProfilePage = () => {
+const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.user);
@@ -162,4 +162,4 @@ const EditProfilePage = () => {
   );
 };
 
-export default EditProfilePage;
+export default Profile;
