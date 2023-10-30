@@ -9,13 +9,14 @@ import ProfilePage from "./pages/Profile/ProfilePage";
 import FollowesPage from "./pages/Follwers/FollowesPage";
 import EditProfilePage from "./pages/Profile/EditProfilePage";
 import BlogPage from "./pages/Blog Pages/BlogPage";
+import Writer from "./pages/Blog Writing Page/Writer";
 
 const App = () => {
   return (
     <div className="App">
       <Routes>
         <Route index path="/" element={<HomePage />} />
-        <Route path="/blog/:id" element={<ArticleDetailPage/>}/>
+        <Route path="/blog/:slug" element={<ArticleDetailPage/>}/>
         <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/register" element={<CommonPage flag={false}/>}/>
         <Route path="/login" element={<CommonPage flag={true}/>}/>
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/followers" element={<FollowesPage title={"Followers List"}/>}/>
         <Route path="/following" element={<FollowesPage title={"Following List"}/>}/>
         <Route path="/editprofile" element={<EditProfilePage/>}/>
+        <Route path="/write" element={<Writer/>}/>
       </Routes>
       <Toaster/>
     </div>

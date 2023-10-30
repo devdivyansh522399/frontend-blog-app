@@ -2,8 +2,22 @@ import React from "react";
 import HashTags from "../../../components/ArticleCard/HashTags";
 import hashtags from "../../../constants/Hashtags";
 import SocialMedia from "../../../components/SocialMedia";
+import { useQuery } from "@tanstack/react-query";
+import { getAllPosts } from "../../../services/Index/posts";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const SuggestedPost = ({ className, header, posts = [] }) => {
+  const { data, isLoading, isError } = useQuery({
+    queryFn: () => getAllPosts(),
+    queryKey: ["posts"],
+    onError: (error) => {
+      toast.error(error.message);
+      console.log(error);
+    },
+  });
+
+  console.log(data);
   return (
     <div className="mt-8 lg:mt-14">
       <div
@@ -13,14 +27,15 @@ const SuggestedPost = ({ className, header, posts = [] }) => {
           {header}
         </h2>
         <div className="grid gap-y-5 mt-5 md:grid-cols-2 md:gap-x-5 lg:grid-cols-1">
-          {posts.map((item) => {
+          {data?.data?.post?.map((item) => {
             return (
-              <div
+              <Link to={`/blog/${item.slug}`}>
+                <div
                 key={item._id}
                 className="flex space-x-3 flex-nowrap items-center"
               >
                 <img
-                  src={item.image}
+                  src={item.photo}
                   alt="Laptop"
                   className="aspect-square object-cover rounded-lg w-1/5"
                 />
@@ -29,14 +44,15 @@ const SuggestedPost = ({ className, header, posts = [] }) => {
                     {item.title}
                   </h3>
                   <span className="text-xs opacity-50 italic">
-                    {new Date(item.createAt).toLocaleDateString("en-in", {
-                      day: "numeric",
-                      month: "short",
-                      year: "numeric",
+                    {new Date(item.createdAt).getDate()}{" "}
+                    {new Date(item.createdAt).toLocaleString("default", {
+                      month: "long",
                     })}
                   </span>
                 </div>
+                
               </div>
+              </Link>
             );
           })}
         </div>
@@ -45,7 +61,7 @@ const SuggestedPost = ({ className, header, posts = [] }) => {
         </h3>
         <HashTags tags={hashtags} />
       </div>
-      <SocialMedia/>
+      <SocialMedia />
     </div>
   );
 };

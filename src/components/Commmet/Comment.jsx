@@ -55,7 +55,6 @@ const Comment = ({
           {commentsBelongToUser && (
             <button onClick={() => setOpen(!open)}>
               <BsThreeDotsVertical />
-              {console.log(open)}
               {open && (
                 <>
                   <div className="flex flex-col rounded-lg absolute bg-dark-soft text-white space-y-2 p-3 text-sm font-medium font-roboto -translate-x-20  ">
@@ -120,7 +119,7 @@ const Comment = ({
           <CommentForm
             btnLabel="Reply"
             formSubmitHandler={(value) =>
-              addCommentHandler(value, repliedCommentId, replyOnUserId)
+              addCommentHandler(value, repliedCommentId, replyOnUserId,)
             }
             formCancelHandler={() => setAffectedComment(null)}
           />
