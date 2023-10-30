@@ -33,17 +33,7 @@ const Article = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center px-3 pb-10">
-        <Swiper
-          slidesPerView={slides}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: true,
-          }}
-          spaceBetween={10}
-          modules={[Autoplay]}
-          className="swiper"
-        >
+      <div className="flex flex-row justify-between">
           {isLoading ? (
             [...Array(3)].map((item, index) => (
               <ArticleCardSkeleton key={index} />
@@ -53,13 +43,10 @@ const Article = () => {
           ) : (
             data.data.post.map((post, index) => {
               return (
-                <SwiperSlide key={index}>
                   <ArticleCard key={post._id} post={post} />
-                </SwiperSlide>
               );
             })
           )}
-        </Swiper>
       </div>
     </>
   );

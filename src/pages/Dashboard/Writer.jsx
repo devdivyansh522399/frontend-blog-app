@@ -4,7 +4,9 @@ import Editor from '../../components/Editor/Editor'
 const Writer = () => {
   return (
      <MainLayout>
-      <Editor/>
+       <section className='container max-w-7xl'>
+          <Editor/>
+       </section>
      </MainLayout>
   )
 }

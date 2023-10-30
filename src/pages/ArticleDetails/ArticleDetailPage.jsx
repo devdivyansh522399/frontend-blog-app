@@ -3,7 +3,7 @@ import MainLayout from "../../components/MainLayout";
 import BreadCrumbs from "../../components/BreadCrumbs";
 import { Link, useParams } from "react-router-dom";
 import SuggestedPost from "./Container/SuggestedPost";
-import postdata from "../../constants/postdata";
+
 import ArticleWriter from "../../components/ArticleCard/ArticleWriter";
 import CommentContainer from "../../components/Commmet/CommentContainer";
 import { useQuery } from "@tanstack/react-query";
@@ -87,7 +87,7 @@ const ArticleDetailPage = () => {
             </article>
           )
         </div>
-        <SuggestedPost header="Latest" posts={postdata} />
+        <SuggestedPost header="Latest" />
       </section> )}
     </MainLayout>
   );

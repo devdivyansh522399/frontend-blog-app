@@ -45,7 +45,7 @@ const CTA = () => {
               reponse the following day.
             </p>
           </div>
-          <div className="col-span-12 hidden mb-[70px] md:block md:order-first lg:col-span-6 lg:order-last">
+          <div className="col-span-12 hidden mb-[70px] lg:block md:order-first lg:col-span-6 lg:order-last">
             <div className="w-3/4 mx-auto relative">
               <div className="w-1/2 h-1/2 bg-[#f2516e] rounded-lg absolute top-[15%] -right-[10%]" />
               <div className="w-1/2 h-1/2 bg-[#64f873] rounded-lg opacity-[0.8] absolute -bottom-[15%] -left-[10%]" />

@@ -5,11 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import ArticleDetailPage from "./pages/ArticleDetails/ArticleDetailPage";
 import CommonPage from "./pages/Register/CommonPage";
 import {Toaster} from 'react-hot-toast'
-import ProfilePage from "./pages/Profile/ProfilePage";
-import FollowesPage from "./pages/Follwers/FollowesPage";
-import EditProfilePage from "./pages/Profile/EditProfilePage";
 import BlogPage from "./pages/Blog Pages/BlogPage";
-import Writer from "./pages/Blog Writing Page/Writer";
+import Profile from "./pages/Profile/Profile";
+import Dashboard from "./pages/Dashboard/Dashboard";
+
 
 const App = () => {
   return (
@@ -20,11 +19,8 @@ const App = () => {
         <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/register" element={<CommonPage flag={false}/>}/>
         <Route path="/login" element={<CommonPage flag={true}/>}/>
-        <Route path="/profile/:id" element={<ProfilePage/>}/>
-        <Route path="/followers" element={<FollowesPage title={"Followers List"}/>}/>
-        <Route path="/following" element={<FollowesPage title={"Following List"}/>}/>
-        <Route path="/editprofile" element={<EditProfilePage/>}/>
-        <Route path="/write" element={<Writer/>}/>
+        <Route path="/profile/:id" element={<Profile/>}/>
+        <Route path="/dashboard/:id" element={<Dashboard/>}/>
       </Routes>
       <Toaster/>
     </div>

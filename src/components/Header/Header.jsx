@@ -17,10 +17,10 @@ const Header = () => {
   };
 
   return (
-    <section className="shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-      <header className="container mx-auto px-5 flex justify-between py-4 items-center">
+    <section className="shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] bg-dark-hard text-[white] -mt-3 sticky top-0 z-50 w-[100%]">
+      <header className="mx-auto px-5 flex justify-between py-4 items-center">
         <div>
-          <img src={images.logo} alt="Logo" className="h-16 w-48" />
+          <img src={images.logo} alt="Logo" className=" h-8 md:h-12 w-24 md:w-36 invert" />
         </div>
         <div className="flex flex-row items-center justify-between space-x-2">
           <div className="z-50 lg:hidden">
@@ -40,7 +40,7 @@ const Header = () => {
           <div
             className={`${
               navIsVisible ? "right-0" : "-right-full"
-            } transition-all duration-300 mt-[100px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center`}
+            } transition-all duration-300 mt-16 lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center`}
           >
             <ul className="text-white lg:text-dark-soft flex flex-col lg:flex-row gap-y-5 lg:gap-x-2 items-center font-semibold">
               {navItemsInfo.map((item) => {
