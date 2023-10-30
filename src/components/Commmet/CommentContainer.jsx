@@ -1,87 +1,89 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CommentForm from "./CommentForm";
-import { getCommentsData } from "../../constants/Comment";
+
 import Comment from "./Comment";
+import { QueryClient, useMutation } from "@tanstack/react-query";
+import { createNewComment, deleteComment, updateComment } from "../../services/Index/comment";
+import { getToken } from "../../services/token";
+import toast from "react-hot-toast";
 
- 
-const CommentContainer = ({ className, logginedUserID }) => {
-  const [comments, setComments] = useState([]);
+const CommentContainer = ({ className, logginedUserID, comments, postSlug }) => {
+  const token = getToken();
   const [affectedComment, setAffectedComment] = useState(null);
-  const mainComments = comments.filter((comment) => comment.parent === null);
-  console.log(comments);
+  const {mutate:mutateNewComment, isLoading:isLoadingNewComment} = useMutation({
+    mutationFn: ({ token, desc, slug, parent, replyOnUser }) => {
+      return createNewComment({ token, desc, slug, parent, replyOnUser });
+    },
+    onSuccess : () => {
+       toast.success("Comment done");
+    },
+    onError: (error) => {
+      console.log(error);
+      toast.error(error);
+    }
+  });
 
+  const {mutate:mutateUpdateComment, isLoading:isLoadingUpdateComment} = useMutation({
+    mutationFn: ({ token, desc, commentId }) => {
+      return updateComment({ token, desc, commentId });
+    },
+    onSuccess : () => {
+       toast.success("Comment updated done");
+       QueryClient.invalidateQueries(["blog",postSlug])
+    },
+    onError: (error) => {
+      console.log(error);
+      toast.error(error);
+    }
+  });
 
-  useEffect(() => {
-    (async () => {
-      const commentData = await getCommentsData();
-      setComments(commentData);
-    })();
-  }, []);
+  const {mutate:mutateDeleteComment, isLoading:isLoadingDeleteComment} = useMutation({
+    mutationFn: ({ token, commentId }) => {
+      return deleteComment({ token, commentId });
+    },
+    onSuccess : () => {
+       toast.success("Comment is Deleted"); 
+    },
+    onError: (error) => {
+      console.log(error);
+      toast.error(error);
+    }
+  });
 
   const addCommentHandler = (value, parent = null, replyingUser = null) => {
-    const newComment = {
-      _id: "10",
-      user: {
-        _id: "a",
-        name: "Mohammad Rezaii",
-      },
-      desc: value,
-      post: "1",
-      parent: parent,
-      replyOnUser: replyingUser,
-      createdAt: new Date().toISOString(),
-    };
-    setComments((currState) => {
-      return [newComment, ...currState];
-    });
+    mutateNewComment({desc:value, parent, replyingUser, token:token, slug:postSlug})
     setAffectedComment(null);
   };
 
-const updateCommentHandler = (value, commentId) => {
-    const updatedComments = comments.map((comment) => {
-      if((comment._id)===commentId){
-        return {...comment, desc : value};
-      }
-      return comment;
-    })
-    setComments(updatedComments);
+  const updateCommentHandler = (value, commentId) => {
+    mutateUpdateComment({token:token, desc:value, commentId:commentId})
     setAffectedComment(null);
-}
+  };
 
-const deleteCommentHandler = (commentId) => {
-    const updatedComments = comments.filter((comment) => {
-      return commentId !== comment._id;
-    })
-    console.log(updatedComments);
-    setComments(updatedComments);
-}
-
-const getRepliesHandler = (commentId) => {
-   return comments.filter((comment) => {
-    return comment.parent === commentId
-   }).sort((a,b) => {
-    return (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()) 
-   });
-}
+  const deleteCommentHandler = (commentId) => {
+    mutateDeleteComment({token:token, commentId : commentId})
+  };
+  console.log();
   return (
     <div className={`${className}`}>
       <CommentForm
         btnLabel="Post"
         formSubmitHandler={(value) => addCommentHandler(value)}
+        loading = {isLoadingNewComment}
       />
       <div className="space-y-4 mt-8">
-        {mainComments.map((comment ) => {
+        {comments.map((comment) => {
           return (
             <Comment
-            key={comment._id}
+              key={comment._id}
               comment={comment}
               logginedUserID={logginedUserID}
               affectedComment={affectedComment}
-              setAffectedComment={ setAffectedComment}
+              setAffectedComment={setAffectedComment}
               addCommentHandler={addCommentHandler}
               updateCommentHandler={updateCommentHandler}
               deleteCommentHandler={deleteCommentHandler}
-              replies={getRepliesHandler(comment._id)}
+              replies={comment.replies}
             />
           );
         })}

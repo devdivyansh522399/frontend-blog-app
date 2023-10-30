@@ -4,7 +4,8 @@ const CommentForm = ({
   btnLabel,
   formSubmitHandler,
   formCancelHandler = null,
-  initialText = ""
+  initialText = "",
+  loading = false
 }) => {
   const [value, setValue] = useState(initialText);
   const submitHandler = (e) => {
@@ -37,6 +38,7 @@ const CommentForm = ({
           <button
             type="submit"
             className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2 text-center  disabled:opacity-70 disabled:cursor-not-allowed"
+            disabled={loading ? true : false}
           >
             {btnLabel}
           </button>

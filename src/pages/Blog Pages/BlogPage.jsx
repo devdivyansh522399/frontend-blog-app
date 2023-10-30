@@ -27,8 +27,8 @@ const BlogPage = () => {
       <section className="max-w-7xl mt-5 mx-auto p-3">
         <div className="">
           <ul className="flex flex-row justify-around items-center bg-dark-soft text-white rounded-xl mx-2 ">
-            {hashtags.slice(0, count - 1).map((item) => {
-              return <NavItems item={item} />;
+            {hashtags.slice(0, count - 1).map((item,index) => {
+              return <NavItems item={item} key={index}/>;
             })}
             <button
               className="py-2 px-2 rounded  text-md font-roboto flex flex-row items-center justify-between"

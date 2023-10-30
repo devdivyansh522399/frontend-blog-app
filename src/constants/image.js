@@ -14,6 +14,7 @@ import Writer from '../assests/writer.jpg'
 import Articles from '../assests/Article.jpg'
 import Subject from '../assests/Subject.jpg'
 import quotes from '../assests/quotes.svg'
+import defaultPost from '../assests/defaultPost.jpg'
 const images = {
   logo,
   laptopImage1,
@@ -30,6 +31,7 @@ const images = {
   Writer,
   Articles,
   Subject,
-  quotes
+  quotes,
+  defaultPost
 };
 export default images;
