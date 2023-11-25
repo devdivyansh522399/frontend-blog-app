@@ -1,7 +1,7 @@
 const ArticleCardSkeleton = ({ className }) => {
     return (
       <div
-        className={`rounded-xl overflow-hidden shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ${className} animate-pulse`}
+        className={`w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-30px)] xl:w-[300px] my-3 rounded-lg mx-auto bg-[#ececec] ${className} flex flex-col justify-between rounded-xl overflow-hidden shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ${className} animate-pulse`}
       >
         {/* image */}
         <div className="w-full aspect-video bg-slate-300" />

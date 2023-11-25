@@ -6,7 +6,7 @@ const ArticlePhoto = (props) => {
     <img
     src={props.photo}
     alt="title"
-    className="w-full object-fit rounded-lg h-auto md:h-52 lg:h-48 xl:h-60 hover:opacity-70"
+    className="w-full object-cover rounded-lg h-auto md:h-52 lg:h-48 xl:h-60 hover:opacity-70"
   />
   )
 }

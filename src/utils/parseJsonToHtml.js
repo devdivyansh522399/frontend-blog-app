@@ -1,9 +1,5 @@
-import { generateHTML } from "@tiptap/html";
-import parse from "html-react-parser";
-import { extensions } from "../constants/tiptapExtensions";
-
-const parseJsonToHtml = (json) => {
-  return parse(generateHTML(json, extensions));
+const parseJsonToHtml = (desc) => {
+  return <div dangerouslySetInnerHTML={{__html : desc}}/>;
 };
 
 export default parseJsonToHtml;

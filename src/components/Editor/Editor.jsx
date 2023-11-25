@@ -1,30 +1,33 @@
-import { EditorContent, useEditor } from "@tiptap/react";
-import "highlight.js/styles/atom-one-dark.css";
-import MenuBar from "./MenuBar";
-import { extensions } from "../../constants/tiptapExtensions";
+import React, { useMemo, useRef } from "react";
+import JoditEditor from "jodit-react";
 
-const Editor = ({ onDataChange, content, editable }) => {
-  const editor = useEditor({
-    editable,
-    extensions: extensions,
-    editorProps: {
-      attributes: {
-        class:
-          "!prose !dark:prose-invert prose-sm sm:prose-base max-w-none mt-7 focus:outline-none prose-pre:bg-[#282c34] prose-pre:text-[#abb2bf]",
-      },
-    },
-    onUpdate: ({ editor }) => {
-      const json = editor.getJSON();
-      onDataChange(json);
-    },
-    content: content,
-  });
+const Editor = ({ initialValue, getValue, editable }) => {
+  const editor = useRef(null);
+  const config = useMemo(() => {
+      return {
+        readonly : !editable,
+        toolbar : editable,
+        uploader: { insertImageAsBase64URI: true },
+        removeButtons: ["brush", "file"],
+        showXPathInStatusbar: false,
+        showCharsCounter: false,
+        showWordsCounter: false,
+        toolbarAdaptive: true,
+        toolbarSticky: true,
+    }
+  }, [editable])
+  const handleDataChange = (newContent) => {
+    getValue(newContent);
+};
 
   return (
-    <div className="w-full relative">
-      {editable && <MenuBar editor={editor} />}
-      <EditorContent editor={editor} />
-    </div>
+    <JoditEditor
+      editor={editable && editor}
+      value={initialValue}
+      config={config}
+      tabIndex={1}
+      onBlur={handleDataChange}
+    />
   );
 };
 
