@@ -29,7 +29,7 @@ export const deletePost = async ({ slug, token }) => {
   try {
     const config = {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       },
     };
 
@@ -46,7 +46,7 @@ export const updatePost = async ({ updatedData, slug, token }) => {
   try {
     const config = {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       },
     };
 
@@ -59,15 +59,16 @@ export const updatePost = async ({ updatedData, slug, token }) => {
   }
 };
 
-export const createPost = async ({ token }) => {
+export const createPost = async ({ token, formData }) => {
   try {
     const config = {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+        Authorization: `${token}`,
       },
     };
-
-    const { data } = await axios.post(`/api/posts`, {}, config);
+    console.log(formData)
+    const { data } = await axios.post(`${API_URL}/api/posts/`, formData, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)

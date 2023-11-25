@@ -73,7 +73,6 @@ export const updateProfile = async ({ token, _id, userData }) => {
 
 export const updateProfilePicture = async ({ token, _id, formData }) => {
   try {
-    console.log(formData);
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",

@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/register" element={<CommonPage flag={false}/>}/>
         <Route path="/login" element={<CommonPage flag={true}/>}/>
         <Route path="/profile/:id" element={<Profile/>}/>
-        <Route path="/dashboard/:id" element={<Dashboard/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
       <Toaster/>
     </div>

@@ -18,7 +18,7 @@ const CropEasy = ({ photo, setOpenCrop }) => {
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: ({ token, formData }) => {
+    mutationFn: ({ formData }) => {
       return updateProfilePicture({
         token: getToken(),
         _id : userState.userInfo.user._id,
@@ -41,7 +41,7 @@ const CropEasy = ({ photo, setOpenCrop }) => {
   const handleCropComplete = (cropedArea, cropedAreaPixels) => {
     setCroppedAreaPixels(cropedAreaPixels);
   };
-
+   
   const handleCropImage = async () => {
     try {
       const croppedImg = await getCroppedImg(photo?.url, croppedAreaPixels);

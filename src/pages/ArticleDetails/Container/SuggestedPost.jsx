@@ -29,9 +29,8 @@ const SuggestedPost = ({ className, header }) => {
         <div className="grid gap-y-5 mt-5 md:grid-cols-2 md:gap-x-5 lg:grid-cols-1">
           {data?.data?.post?.map((item) => {
             return (
-              <Link to={`/blog/${item.slug}`}>
+              <Link to={`/blog/${item.slug}`}  key={item._id}>
                 <div
-                key={item._id}
                 className="flex space-x-3 flex-nowrap items-center"
               >
                 <img

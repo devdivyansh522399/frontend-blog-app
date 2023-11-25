@@ -34,7 +34,7 @@ const ArticleDetailPage = () => {
       setBody(parseJsonToHtml(data?.post?.body));
     },
   });
-  
+  console.log(data?.post);
   return (
     <MainLayout>
       {isLoading ? <ArticleDetailSkeleton/> : isError ? <ErrorMessage/> : (
@@ -54,12 +54,14 @@ const ArticleDetailPage = () => {
                   Follow +
                 </button>
               </div>
+              <div className="flex justify-center items-center w-full">
               <img
                 src={data?.post?.photo}
                 alt="Laptop"
-                className="rounded-xl w-full my-6"
+                className="rounded-xl w-[480px] my-6"
               />
-              {data?.post?.Categories?.map((c, index) => {
+              </div>
+              {data?.post?.category?.map((c, index) => {
                 return (
                   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm md:text-lg  font-semibold text-gray-700 mr-2 mb-2" key={index}>
                     <Link
@@ -72,20 +74,20 @@ const ArticleDetailPage = () => {
                 );
               })
             }
-              <h1 className="text-xl font-medium font-roboto text-dark-hard md:text-[26px]">
-                {data?.post.caption}
+              <h1 className="text-2xl font-medium font-roboto text-dark-hard">
+                {data?.post?.caption}
               </h1>
               <div className="mt-4 text-dark-soft">
                 <p className="leading-5 mb-3">
                 {!isLoading && !isError && (
-                <Editor content={data?.post?.body} editable={false} />
+                <Editor initialValue={data?.post?.body ? data?.post?.body : "<i>No content in this post..</i>"} editable={false} />
+               
               )}
                 </p>
                 { data?.post?.tags && <HashTags tags={data?.post?.tags} />}
               </div>
               <CommentContainer comments={data?.post?.comments} className="mt-10" logginedUserID={user?._id} postSlug = {data?.post?.slug}/>
             </article>
-          )
         </div>
         <SuggestedPost header="Latest" />
       </section> )}

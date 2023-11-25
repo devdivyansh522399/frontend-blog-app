@@ -22,6 +22,7 @@ const BlogPage = () => {
   }, []);
 
   let count = windowWidth / 150;
+  
   return (
     <MainLayout>
       <section className="max-w-7xl mt-5 mx-auto p-3">
