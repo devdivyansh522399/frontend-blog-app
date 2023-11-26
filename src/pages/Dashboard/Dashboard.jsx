@@ -60,7 +60,9 @@ const Dashboard = () => {
       formData.append("userId", user._id);
       formData.append("postPicture", photo.file);
       console.log(formData);
-      mutate({ formData: formData }).then(()=>toast.success("Post is created")).then(()=>navigate("/blog"));
+      mutate({ formData: formData })
+      toast.success("Post is created")
+      navigate("/blog")
       
     } catch (error) {
       toast.error(error.message);
