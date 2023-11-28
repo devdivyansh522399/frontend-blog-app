@@ -14,9 +14,9 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route index path="/" element={<HomePage />} />
+        <Route path="/" element={<BlogPage/>}/>
         <Route path="/blog/:slug" element={<ArticleDetailPage/>}/>
-        <Route path="/blog" element={<BlogPage/>}/>
+        <Route index path="/blog" element={<HomePage />} />
         <Route path="/register" element={<CommonPage flag={false}/>}/>
         <Route path="/login" element={<CommonPage flag={true}/>}/>
         <Route path="/profile/:id" element={<Profile/>}/>

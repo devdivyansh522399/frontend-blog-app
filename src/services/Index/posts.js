@@ -32,8 +32,8 @@ export const deletePost = async ({ slug, token }) => {
         Authorization: `${token}`,
       },
     };
-
-    const { data } = await axios.delete(`/api/posts/${slug}`, config);
+    
+    const { data } = await axios.delete(`${API_URL}/api/posts/${slug}`, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -42,15 +42,14 @@ export const deletePost = async ({ slug, token }) => {
   }
 };
 
-export const updatePost = async ({ updatedData, slug, token }) => {
+export const updatePost = async ({ formData, slug, token }) => {
   try {
     const config = {
       headers: {
         Authorization: `${token}`,
       },
     };
-
-    const { data } = await axios.put(`/api/posts/${slug}`, updatedData, config);
+    const { data } = await axios.put(`${API_URL}/api/posts/${slug}`, formData, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)

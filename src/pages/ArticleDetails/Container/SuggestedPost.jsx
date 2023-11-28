@@ -19,7 +19,7 @@ const SuggestedPost = ({ className, header }) => {
 
   console.log(data);
   return (
-    <div className="mt-8 lg:mt-14">
+    <div className="mt-4 lg:mt-14 ">
       <div
         className={`w-full shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] rounded-lg p-4 ${className}`}
       >

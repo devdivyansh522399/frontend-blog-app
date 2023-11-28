@@ -34,7 +34,6 @@ const ArticleDetailPage = () => {
       setBody(parseJsonToHtml(data?.post?.body));
     },
   });
-  console.log(data?.post);
   return (
     <MainLayout>
       {isLoading ? <ArticleDetailSkeleton/> : isError ? <ErrorMessage/> : (
@@ -44,8 +43,7 @@ const ArticleDetailPage = () => {
             <article className="flex-1 shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] p-5">
               <div className="flex flex-col">
                 <ArticleWriter
-                  user={data?.post?.user}
-                  time={data?.post?.createdAt}
+                  post={data?.post}
                 />
                 <button
                   type="button"
