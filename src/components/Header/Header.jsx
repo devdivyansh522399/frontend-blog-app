@@ -24,7 +24,7 @@ const Header = () => {
           <Link to={"/"}><img src={images.logo} alt="Logo" className=" h-8 md:h-12 w-24 md:w-36" /></Link>
           <Link className="flex flex-row space-x-2" to={"/dashboard"}>
             <FaPenAlt  className="w-6 h-6"/>
-            <span className="text-md font-medium">Write Article</span>
+            <span className="text-md font-medium hidden md:block">Write Article</span>
           </Link>
         </div>
         <div className="flex flex-row items-center justify-between space-x-2">
