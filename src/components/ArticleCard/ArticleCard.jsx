@@ -20,12 +20,12 @@ const ArticleCard = ({ post, className}) => {
           className="flex flex-row items-center space-x-1"
         >
           <img
-            src={post.user.avatar ? post.user.avatar : images.LoginProfile}
+            src={post?.user.avatar ? post.user.avatar : images.LoginProfile}
             alt=""
             className="w-5 h-5 md:w-10 md:h-10 rounded-full"
           />
           <h4 className="font-bold italic text-dark-soft text-sm md:text-base">
-            {post.user.name}
+            {post?.user.name}
           </h4>
         </Link>
         <span className="font-bold text-dark-light italic text-sm md:text-base">

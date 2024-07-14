@@ -66,7 +66,6 @@ export const createPost = async ({ token, formData }) => {
         Authorization: `${token}`,
       },
     };
-    console.log(formData)
     const { data } = await axios.post(`${API_URL}/api/posts/`, formData, config);
     return data;
   } catch (error) {

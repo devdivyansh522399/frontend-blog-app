@@ -8,6 +8,7 @@ import {Toaster} from 'react-hot-toast'
 import BlogPage from "./pages/Blog Pages/BlogPage";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import NavPages from "./pages/NavPages/NavPages";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<CommonPage flag={true}/>}/>
         <Route path="/profile/:id" element={<Profile/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/EmergingTech" element={<NavPages/>}/>
       </Routes>
       <Toaster/>
     </div>

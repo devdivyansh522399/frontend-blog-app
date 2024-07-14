@@ -55,9 +55,6 @@ const LoginPage = () => {
   const password = watch("password");
   return (
     <div className="p-2 flex flex-col">
-      <h1 className="text-2xl font-roboto font-bold text-center mt-1 underline text-dark-soft">
-        Create Your Account
-      </h1>
       <form
         className="space-y-3 md:space-y-4 p-2 font-roboto"
         onSubmit={handleSubmit(submitHandler)}
@@ -141,10 +138,12 @@ const LoginPage = () => {
                 value: true,
                 message: "Password is required",
               },
-              pattern : {
-                value : /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/,
-                message : "Minimum 8 characters, at least one letter, one number and one special character required"
-              }
+              pattern: {
+                value:
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/,
+                message:
+                  "Minimum 8 characters, at least one letter, one number and one special character required",
+              },
             })}
             placeholder="••••••••"
             className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2 ${
@@ -179,7 +178,8 @@ const LoginPage = () => {
                 }
               },
             })}
-            placeholder="••••••••"z
+            placeholder="••••••••"
+            z
             className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2 ${
               errors.confirmPassword ? "border-red-500" : "border-[#08fb51]"
             }`}
@@ -206,10 +206,7 @@ const LoginPage = () => {
             />
           </div>
           <div className="ml-3 text-sm">
-            <label
-              htmlFor="terms"
-              className="font-light text-drak-soft"
-            >
+            <label htmlFor="terms" className="font-light text-drak-soft">
               I accept the{" "}
               <a
                 className="font-medium text-primary-600 hover:underline "
@@ -220,11 +217,9 @@ const LoginPage = () => {
             </label>
           </div>
         </div>
-          {errors.checkBox?.message && (
-            <p className="text-red-500 text-xs">
-              {errors.checkBox.message}
-            </p>
-          )}
+        {errors.checkBox?.message && (
+          <p className="text-red-500 text-xs">{errors.checkBox.message}</p>
+        )}
 
         <div className="flex flex-row justify-center m-1">
           <button

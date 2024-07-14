@@ -6,7 +6,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 const Navbar = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showItem, setShowItem] = useState(false);
-  
+
     useEffect(() => {
       const handleResize = () => {
         setWindowWidth(window.innerWidth);
@@ -18,7 +18,7 @@ const Navbar = () => {
   }, []);
 
   let count = windowWidth / 130;
-  
+
   return (
     <section className="max-w-8xl mt-2 mx-auto p-3">
         <div className="">

@@ -7,7 +7,7 @@ const HashTags = ({ tags = [] , className = ""}) => {
       <div>
         {tags.map((item, index) => {
           return (
-            <span className={`inline-block ${className ? className : "bg-gray-200"} rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`} key={index}>
+            <span className={`inline-block ${className ? className : "bg-gray-300"} rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-1 mb-1`} key={index}>
               <Link to="/">{item}</Link>
             </span>
           );

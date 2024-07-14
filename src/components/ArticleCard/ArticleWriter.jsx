@@ -71,7 +71,7 @@ const ArticleWriter = ({ className, post }) => {
             month: "long",
           })}
         </span>
-        {post?.user._id === loggedInUser._id && (
+        {post?.user?._id === loggedInUser?._id && (
           <div className="relative">
             <button onClick={() => setOpen(!open)}>
               <BsThreeDotsVertical />

@@ -7,7 +7,7 @@ import HashTags from "../../../components/ArticleCard/HashTags";
 
 const Post = ({ post }) => {
   return (
-    
+
         <div className="p-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] rounded-lg mb-4">
       <div>
         <ArticleWriter post={post}/>
@@ -23,9 +23,9 @@ const Post = ({ post }) => {
                 <span className="mx-1">{"  "}Read More...</span>
               </Link>
             </p>
-            { post?.tags && <HashTags tags={post?.tags} />}
+            { post?.tags && <HashTags tags={post.tags["0"].split(",")} />}
           </div>
-          
+
           <div className="w-1/4">
              <ArticlePhoto photo={post.photo ? post.photo : images.defaultPost}/>
           </div>

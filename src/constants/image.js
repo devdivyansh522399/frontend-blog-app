@@ -8,6 +8,7 @@ import Loginphoto from "../assests/Loginphoto.jpg";
 import uploadSVG from "../assests/upload.svg";
 import thought from "../assests/thought.png";
 import CTA from "../assests/CTA.jpg";
+import SignUpPhoto from "../assests/SignUpPhoto.jpg";
 
 import quotes from "../assests/quotes.svg";
 const images = {
@@ -21,5 +22,6 @@ const images = {
   uploadSVG,
   thought,
   quotes,
+  SignUpPhoto
 };
 export default images;
